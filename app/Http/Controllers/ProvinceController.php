@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 
 class ProvinceController extends Controller
@@ -13,7 +14,16 @@ class ProvinceController extends Controller
      */
     public function index()
     {
-        return view('province.index');
+        try {
+            if (!view('province.index')) {
+                throw new Exception();
+            }
+
+            return view('province.index');
+        } catch (Exception $e) {
+            // echo "<script type='text/javascript'>alert('File tidak ditemukan !')</script>";
+            return redirect(route('home'))->with('fileNotFound', 'File tidak ditemukan !');
+        }
     }
 
     /**

@@ -18,4 +18,10 @@
         </div>
     </div>
 </div>
+
+@if (session()->has('fileNotFound'))
+    <script type="text/javascript">
+        alert('File tidak ditemukan!');
+    </script>
+@endif
 @endsection
