@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\APIManagement\{ProvinceController, CountryController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Province route
+Route::get('province', [ProvinceController::class, 'index']);
+Route::post('province', [ProvinceController::class, 'store']);
+Route::get('province/{id}', [ProvinceController::class, 'show']);
+Route::put('province/{id}', [ProvinceController::class, 'update']);
+Route::delete('province/{id}', [ProvinceController::class, 'destroy']);
+Route::get('province/search/{name}', [ProvinceController::class, 'search']);
+Route::get('province/regencies/{id}', [ProvinceController::class, 'regencies']);
+
+// Country route
+Route::get('country', [CountryController::class, 'index']);
+Route::post('country', [CountryController::class, 'store']);
+Route::get('country/{id}', [CountryController::class, 'show']);
+Route::put('country/{id}', [CountryController::class, 'update']);
+Route::delete('country/{id}', [CountryController::class, 'destroy']);
+Route::get('country/search/{name}', [CountryController::class, 'search']);
+Route::get('country/province/{id}', [CountryController::class, 'province']);

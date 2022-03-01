@@ -12,16 +12,10 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Successfully logged in !') }} 
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-@if (session()->has('fileNotFound'))
-    <script type="text/javascript">
-        alert('File tidak ditemukan!');
-    </script>
-@endif
 @endsection

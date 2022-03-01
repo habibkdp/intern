@@ -25,8 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard', [
-            'data' => User::find(Auth::id())
-        ]);
+        return view('dashboard');
+    }
+
+    /**
+     * Show the API introduction
+     *
+     * @return void
+     */
+    public function introduction()
+    {
+        return view('api.intro');
     }
 }
