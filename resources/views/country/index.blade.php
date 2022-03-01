@@ -10,14 +10,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
             @endif
-
+    
             @if (session()->has('updateSuccess'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('updateSuccess') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
             @endif
-
+    
             @if (session()->has('deleteSuccess'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{ session('deleteSuccess') }}
@@ -25,34 +25,31 @@
               </div>
             @endif
 
-            <a href="{{ route('provinceCreate') }}" class="btn btn-outline-primary mb-3">Tambah Data</a>
+            <a href="{{ route('countryCreate') }}" class="btn btn-outline-primary mb-3">Tambah Data</a>
             
-            @if ($province->count())
+            @if ($country->count())
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Province Name</th>
-                        <th>Country</th>
-                        <th>Total Kabupaten / Kota</th>
+                        <th>Country Name</th>
+                        <th>Total Province</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($province as $index => $item)
+                    @foreach ($country as $index => $item)
                     <tr class="align-middle">
                         <th>{{ ($currentPage - 1) * $perPage + $index + 1 }}</th>
                         <td>{{ $item->name }}</td>
-                        <td>{{ $item->country->name }}</td>
-                        <td>{{ count($item->regencies) }}</td>
-                        <td class="text-center"><a href="/province/edit/{{ $item->id }}" class="btn btn-outline-success"><i class="bi bi-pencil"></i></a> | 
-                            <a href="/province/delete/{{ $item->id }}" class="btn btn-outline-danger" onclick="alert(event)"><i class="bi bi-trash"></i></a></td>
+                        <td>{{ count($item->province) }}</td>
+                        <td class="text-center"><a href="/country/edit/{{ $item->id }}" class="btn btn-outline-success"><i class="bi bi-pencil"></i></a> | 
+                            <a href="/country/delete/{{ $item->id }}" class="btn btn-outline-danger" onclick="alert(event)"><i class="bi bi-trash"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-
-            {{ $province->links() }}
+            {{ $country->links() }}
             @else
                 <h1>Tidak ada data yang ditemukan !</h1>                
             @endif
