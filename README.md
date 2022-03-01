@@ -1,64 +1,45 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center">PT DOT Internship Backend(Laravel) Challenge</p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Penjelasan Project
 
-## About Laravel
+Project ini adalah aplikasi berbasis website dinamis menggunakan framework laravel. Aplikasi ini menyediakan data daerah lokal Indonesia, aplikasi ini mempunyai fitur CRUD seecara front-end maupun menggunakan REST API.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Desain Database
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Ini adalah desain database dari aplikasi ini.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<img src="https://i.ibb.co/ZdzhXRh/download-1.png" width="900" height="650">
 
-## Learning Laravel
+Penjelasan relasi :
+- Tabel countries mempunyai relasi hasMany terhadap tabel provinces.
+- Tabel provinces mempunyai relasi belongsTo terhadap tabel countries.
+- Tabel provinces mempunyai relasi hasMany terhadap tabel regencies.
+- Tabel regencies mempunyai relasi belongsTo terhadap tabel provinces
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Screnshoot Aplikasi
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Berikut adalah screnshoot page aplikasi saya
 
-## Laravel Sponsors
+- Register <img src="https://i.ibb.co/KFVG3qB/register.png" width="1100" height="480">
+- Login <img src="https://i.ibb.co/vdBsPyg/login.png" width="1100" height="480">
+- Dashboard <img src="https://i.ibb.co/vDxvKtF/dashboard.png" width="1100" height="480">
+- Negara <img src="https://i.ibb.co/tYTggQb/negara.png" width="1100" height="480">
+- Provinsi <img src="https://i.ibb.co/hc1vVQ9/provinsi.png" width="1100" height="480">
+- Tambah data provinsi <img src="https://i.ibb.co/nzCLWwZ/add-provinsi.png" width="1100" height="480">
+- Introduction dokumentasi <img src="https://i.ibb.co/gPt4zDY/intro-docs.png" width="1100" height="480">
+- Dokumentasi API negara <img src="https://i.ibb.co/qdXJGPK/negara-docs.png" width="1100" height="480">
+- Dokumentasi API provinsi <img src="https://i.ibb.co/09tnf5h/provinsi-docs.png" width="1100" height="480">
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Dependensi
 
-### Premium Partners
+Dependensi yang saya gunakan adalah
+- laravel/ui yang saya gunakan untuk membuat tampilan dan routes untuk fitur auth
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Informasi Lain
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Untuk database saya menggunakan seeder dari package github azishapidin/indoregion. Cara penginstallan package tersebut sebagai berikut
+- Buka command line dan ketikkan "composer require azishapidin/indoregion"
+- Lalu ketik "php artisan indoregion:publish" untuk menyalin file migration, model dan seeder ke aplikasi laravel
+- Kemudian ketik "composer dump-autoload" untuk mencari semua class dan file yang perlu di include lagi
+- Ketik "php artisan db:seed --class=IndoRegionProvinceSeeder" untuk seeder tabel provinces
+- Ketik "php artisan db:seed --class=IndoRegionRegencySeeder" untuk seeder tabel regencies
